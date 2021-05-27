@@ -1,0 +1,161 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.08370719172062056 -0.9212854683090465 -0.37977123632106224 3.558337304031811
+  position 6.558793715973696 12.57626948455838 -12.05072431519696
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 10
+}
+Ball {
+  translation -1.92 0.4999125722761984 2.22
+  radius 0.5
+}
+WateringCan {
+  translation -1.89 0 -1.91
+}
+CardboardBox {
+  translation 1.72 0.3 1.13
+}
+WoodenChair {
+  translation 1.26 0 -2.11
+}
+BeerBottle {
+  translation 1.84 0.00010727578217210876 1.74
+  rotation -0.9810637371987978 0.09843304361674753 0.1668079119162866 -2.1135474211964495e-16
+  mass 1
+}
+Robot {
+  translation -1.2961353711924008e-06 -0.04283972574861042 -2.7132006441677104e-05
+  rotation -0.5858560970996014 0.015060587649049387 -0.8102751459787518 -0.0005214368866195812
+  scale 3.57369 3.57369 3.57369
+  children [
+    DEF body Transform {
+      translation 0 0.04 0
+      scale 1 0.2 1.3
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8 0.294118 1
+            metalness 0.5
+          }
+          geometry Box {
+            size 0.1 0.1 0.1
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1.0244159773968283e-07
+        anchor 0.05 0.04 0.05
+      }
+      device [
+        RotationalMotor {
+          name "motor_1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0500319 0.03996 0.05000000000327612
+        rotation -4.0984064337932985e-08 4.095144061718444e-08 0.9999999999999984 1.5700000000000016
+        children [
+          DEF wheel Shape {
+            geometry Cylinder {
+              height 0.025
+              radius 0.025
+            }
+          }
+        ]
+        boundingObject USE wheel
+        physics DEF wheel Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -3.8178332063822487e-07
+        anchor -0.05 0.04 0.05
+      }
+      device [
+        RotationalMotor {
+          name "motor_2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 0.04 0.05
+        rotation -2.0585010194422236e-07 2.056862432261966e-07 0.9999999999999578 1.5700000000000418
+        children [
+          DEF wheel Shape {
+            geometry Cylinder {
+              height 0.025
+              radius 0.025
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -4.365804991774006e-07
+        anchor -0.05 0.04 -0.06
+      }
+      device [
+        DEF motor_3 RotationalMotor {
+          name "motor_3"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 0.04003999999999999 -0.060000000017463216
+        rotation -2.1846414921316063e-07 2.1829024958869346e-07 0.9999999999999524 1.5700000000000465
+        children [
+          USE wheel
+        ]
+        name "solid(2)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1.578135175347804e-07
+        anchor 0.05 0.04 -0.06
+      }
+      device [
+        RotationalMotor {
+          name "motor_4"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05 0.04 -0.06
+        rotation -7.838683204369058e-08 7.83244353497493e-08 0.9999999999999939 1.5700000000000063
+        children [
+          USE wheel
+        ]
+        name "solid(3)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    Camera {
+      translation 0 0.04 0.065
+      rotation 0 1 0 3.14
+    }
+  ]
+  boundingObject USE body
+  physics Physics {
+  }
+  controller "my_controller"
+  remoteControl "remote_file"
+}

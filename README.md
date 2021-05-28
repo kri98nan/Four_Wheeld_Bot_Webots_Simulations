@@ -1,4 +1,4 @@
-# Four_Wheeld_Bot_Webots_Simulations #
+# Four_Wheeled_Bot_Webots_Simulations #
 Four Wheeled Ground Robot Simulations.
 
 Webots Version : R2020b revision 1
